@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, Button, StyleSheet, Image, ScrollView } from 'react-native'
 import ApiService from '../ApiService'
 import { useNavigation } from '@react-navigation/native';
+import { FontAwesome } from '@expo/vector-icons'
+import { Entypo } from '@expo/vector-icons';
 
 
 interface SingleEventScreenProps {
@@ -88,7 +90,7 @@ const details = event.map((event) => {
 
     const myArc = eventUsers.filter(a => a[2] === props.route.params.user).map((user:any, i) => {
       return <View style={styles.me} key={user[2]}>
-      <Text style={styles.textMe}>You {event[0].arcsPaid[user[2]] ? 'paid' : 'owe'} £{event[0].arcs[user[2]]}</Text>
+      <Text style={styles.textMe}>You {event[0].arcsPaid[user[2]] ? 'paid' : 'owe'} £{event[0].arcs[user[2]].toFixed(2)}</Text>
       <Text style={styles.textBlurbMe}>for {event[0].arcItems[props.route.params.user].length === 2 ? 'Food and Drink' : event[0].arcItems[props.route.params.user] === 'F' ? 'Food Only' : 'Drinks only'}</Text>
       <View>
       </View>
@@ -105,9 +107,23 @@ const details = event.map((event) => {
 
    const friendsArc = eventUsers.filter(a => a[2] !== props.route.params.user).map((user:any, i) => {
       return <View style={styles.othersWrapper} key={user[2]}>
-      <Text style={styles.othersBill}>{event[0].arcFirstNames[user[2]] + ' ' + user[1]} {event[0].arcsPaid[user[2]] ? 'paid' : 'owes'} £{event[0].arcs[user[2]]}</Text>
-      <Text style={styles.othersBlurb}>for {event[0].arcItems[user[2]].length === 2 ? 'Food and Drink' : event[0].arcItems[user[2]] === 'F' ? 'Food' : 'Drinks'}</Text>
-      </View>
+              <View style={styles.othersTextContent}>
+                <Text style={styles.othersBill}>{event[0].arcFirstNames[user[2]] + ' ' + user[1]} {event[0].arcsPaid[user[2]] ? 'paid' : 'owes'} £{event[0].arcs[user[2]].toFixed(2)}</Text>
+                <Text style={styles.othersBlurb}>for {event[0].arcItems[user[2]].length === 2 ? 'Food and Drink' : event[0].arcItems[user[2]] === 'F' ? 'Food' : 'Drinks'}</Text>
+              </View>
+                {event[0].arcItems[user[2]].length === 2 ?
+                <View style={styles.icons}>
+                <FontAwesome name="cutlery" size={24} color="white" />
+                <Entypo name="drink" size={24} color="white" style={styles.icon}/>
+                </View> : event[0].arcItems[user[2]] === 'F' ?
+                <View style={styles.icons}>
+                <FontAwesome name="cutlery" size={24} color="white" />
+                </View> :
+                <View style={styles.icons}>
+                <Entypo name="drink" size={24} color="white" style={styles.icon}/>
+                </View>
+                }
+              </View>
     })
 
 
@@ -120,13 +136,14 @@ const details = event.map((event) => {
     <View style={styles.container}>
       {details}
       {props.route.params.user === creator ? <Text style={styles.creator}>You Created The Event!</Text> : myArc}
-      {friendsArc ? friendsArc : 'hi you'}
+      {friendsArc ? friendsArc : 'undefined'}
       <View style={styles.buttonBack}>
       <Button color='white'
       title='Back to Events'
       onPress={() => {
         navigation.goBack()}}/>
       </View>
+
     </View>
       </ScrollView>
   )}
@@ -294,12 +311,16 @@ const styles = StyleSheet.create({
       marginBottom: 20
     },
     othersWrapper: {
+      flexDirection:'row',
       marginTop:20,
       borderTopColor: '#C996D4',
       borderBottomColor: '#C996D4',
       borderTopWidth: 2,
       width:'90%',
-      alignItems: 'center'
+      alignItems: 'center',
+      justifyContent: 'space-between'
+    },
+    othersTextContent: {
     },
     othersBill: {
     marginTop:13,
@@ -334,8 +355,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight:'bold',
     borderRadius: 3,
+    },
+    icons: {
+      flexDirection:'row',
+    },
+    icon: {
+    paddingLeft:10
     }
-
 })
 
 
