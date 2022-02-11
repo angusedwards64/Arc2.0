@@ -32,4 +32,4 @@ Node,
 Typescript,
 Expo,
 Mongo/Mongoose,
-Express,
+Express.
