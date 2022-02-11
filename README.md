@@ -26,10 +26,10 @@ I have moved the application over to a fresh repo entirely (with the previous ap
 can be made public on request) due to an expo system error that was causing the front-end to nest within an unreachable 
 subfolder. Hence the lack of previous commits.
 
-Tech stack
-React Native
-Node
-Typescript
-Expo
-Mongo/Mongoose
-Express
+Tech stack:
+React Native,
+Node,
+Typescript,
+Expo,
+Mongo/Mongoose,
+Express,
