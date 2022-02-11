@@ -18,13 +18,14 @@ In app-payments. Bigger feature to implement of course, but a key one further do
 
 
 Getting Started:
-To run the application you need to have expo, and once you have this you can install the required dependencies 
-by running '$npm i' within the main foler, followed by '$expo start'. You can then select your desired ios or android 
-system. If you have expo go on your phone you can also scan the QR code and use the app there. (If you have a mac you 
-will need XCode in order to run the iPhone simulator).
+To run the application start by heading into the server folder, running '$npm i', followed by '$nodemon index.js'. 
+You will also need to have expo installed, and once you have this you can head into the main folder, and in a new 
+terminal window, run '$expo start'. It will then provide you the option to select your desired ios or android system.
+If you have expo go on your phone you can also scan the QR code and use the app there. (If you have a mac you will 
+need XCode in order to run the iPhone simulator).
 I have moved the application over to a fresh repo entirely (with the previous application now listed as private, but 
-can be made public on request) due to an expo system error that was causing the front-end to nest within an unreachable 
-subfolder. Hence the lack of previous commits.
+can be made public on request) due to an system error that was causing the front-end to nest within an unreachable 
+subfolder on github. Hence the lack of previous commits.
 
 Tech stack:
 React Native,
