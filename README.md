@@ -8,7 +8,7 @@ equally based on who had what, providing a breakdown for each of these users wit
 list of existing 'arcs'. Users can click 'Pay Now' once they have actually paid the organiser, and this will update 
 for everyone who has access to and were a part of the event.
  
-Upcoming features:
+Upcoming Features:
 Options to split costs more specifically, designating different amounts for food or drink for individuals if the host
 wishes to do so. 
 The options to upload photos, so that the organiser can add a photo of the physical bill itself. 
@@ -17,7 +17,7 @@ or holiday tab etc.
 In app-payments. Bigger feature to implement of course, but a key one further down the line
 
 
-Getting started:
+Getting Started:
 To run the application you need to have expo, and once you have this you can install the required dependencies 
 by running '$npm i' within the main foler, followed by '$expo start'. You can then select your desired ios or android 
 system. If you have expo go on your phone you can also scan the QR code and use the app there. (If you have a mac you 
