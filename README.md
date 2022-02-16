@@ -9,7 +9,7 @@ Arc is a bill splitting application, designed to make splitting bills after an e
   <img src="./README_photos/SignUp.png" width="49%" />
 </p>
 
-Upon signing up or logging in, the user will hit their landing page, where they can edit their details or update their information. They can navigate to a new arc, by clicking the create button, or alternatively the plus on the tab navigator at the bottom.
+Upon signing up or logging in, the user will hit their landing page, where they can edit their details or update their information. They can navigate to a new arc, by clicking the 'create' button, or alternatively the plus on the tab navigator at the bottom.
 
 <p float="left">
   <img src="./README_photos/addfriendtoarc.png" width="30%" />
@@ -17,14 +17,14 @@ Upon signing up or logging in, the user will hit their landing page, where they 
   <img src="./README_photos/whoate.png" width="30%" />
 </p>
 
-When creating a new bill, they will need to select the friends who attended, along with the name and date of the event. As they input the food and drink cost, they will be forced to select which users from the event particpiated in each, enabling the app to make the necessary breakdowns per person.
+When creating a new bill, they will need to select the friends who attended, along with a name and date for the event. As they input the food and drink cost, they will be forced to select which users from the event particpiated in each, enabling the app to make the necessary breakdowns per person.
 
 <p float="left">
   <img src="./README_photos/UpdatedEvents.png" width="49%" />
   <img src="./README_photos/dinnerInAngelPage.png" width="49%" />
 </p>
 
-A user can head to the event page, where they will see a list of existing arcs, organised by date, showing some high level details of each event. If they were the creator, a tag will appear indicating so. They can then head to the event to unfurl a list of the full details associated with it
+A user can head to the event page, where they will see a list of existing arcs, organised by date, showing some high level details of each event. If they were the creator, a tag will appear indicating so. They can then head to the event to unfurl a list of the full details associated with it.
 
 <p float="left">
 
@@ -32,7 +32,7 @@ A user can head to the event page, where they will see a list of existing arcs, 
   <img src="./README_photos/paidforEvent.png" width="49%" />
 </p>
 
-Within the page itself, the full breakdown displays information for the event, as well as total costs for food and drink. Further down, the user can see exactly what they owe, and for what, with accompanying icons displaying the food and drink breakdown. If they are host there will be no option to pay, however for all other attendees, a pay now button will appear. Once they have paid they can click 'Pay Now', which will update the page, allowing the host and all other users to see that they have done so. Below their own summary, they can see the full list of who attended, and who owes how much and for what. Once again, this information will update whenever an attendee has paid their own tab and confirmed that they have done so.
+Within the page itself, the full breakdown displays information for the event, as well as total costs for food and drink. Further down, the user can see exactly what they owe, and for what, with accompanying icons displaying the food and drink breakdown. If they're the host there will be no option to pay; for all other attendees, a 'pay now' button will exist. Once they have paid they can click the button, allowing the host and all other users to see that they have done so. Below their own summary, they can see the full list of who attended, and who owes how much and for what. Once again, this information will update whenever an attendee has paid their own tab and confirmed that they have done so.
 
 
 
