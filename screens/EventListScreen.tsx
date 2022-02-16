@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 100,
-    marginLeft: 75
+    marginLeft: 45
   },
   crosshead: {
     flexDirection: 'row',
@@ -119,6 +119,8 @@ const styles = StyleSheet.create({
     color: '#C996D4',
     marginTop: 40,
     marginBottom: 20,
+    marginLeft: 20,
+    // marginRight: 0,
     fontWeight: 'bold',
     fontSize: 35,
   },
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
     padding: 6,
     borderRadius: 3,
     position: 'absolute',
-    marginLeft: 300,
+    marginLeft: 260,
   }
 
 })

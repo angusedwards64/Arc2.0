@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     backgroundColor: 'rgb(20,20,30)',
-    height: 1500
+    height: 1800
   },
   btnClicked: {
     color: 'red'
