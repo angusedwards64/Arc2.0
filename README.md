@@ -12,9 +12,9 @@ Arc is a bill splitting application, designed to make splitting bills after an e
 Upon signing up or logging in, the user will hit their landing page, where they can edit their details or update their information. They can navigate to a new arc, by clicking the create button, or alternatively the plus on the tab navigator at the bottom.
 
 <p float="left">
-  <img src="./README_photos/addfriendtoarc.png" width="33%" />
-  <img src="./README_photos/arcInput.png" width="33%" />
-  <img src="./README_photos/whoate.png" width="33%" />
+  <img src="./README_photos/addfriendtoarc.png" width="30%" />
+  <img src="./README_photos/arcInput.png" width="30%" />
+  <img src="./README_photos/whoate.png" width="30%" />
 </p>
 
 When creating a new bill, they will need to select the friends who attended, along with the name and date of the event. As they input the food and drink cost, they will be forced to select which users from the event particpiated in each, enabling the app to make the necessary breakdowns per person.
