@@ -1,10 +1,8 @@
-import React from 'react'
-import { View, Text } from 'react-native'
-import 'react-native-gesture-handler';
-import { createStackNavigator } from '@react-navigation/stack';
+import React, { Dispatch } from 'react'
+import 'react-native-gesture-handler'
+import { createStackNavigator } from '@react-navigation/stack'
 import SignUpScreen from '../screens/SignUpScreen'
 import LoginScreen from '../screens/LoginScreen'
-import { useState, useEffect, Dispatch } from 'react'
 
 interface EntryProps {
   setUser: Dispatch<React.SetStateAction<string>>;
@@ -15,11 +13,8 @@ type StackParamsList = {
   Login: undefined
 }
 
-export default function EntryComponent({ setUser }: EntryProps) {
-
-  const Stack = createStackNavigator<StackParamsList>();
-
-
+export default function EntryComponent ({ setUser }: EntryProps) {
+  const Stack = createStackNavigator<StackParamsList>()
 
   return (
 
