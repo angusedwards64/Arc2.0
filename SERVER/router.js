@@ -1,7 +1,6 @@
-const router = require('express').Router();
-const userController = require('./controller/user-controller');
-const eventController = require('./controller/event-controller');
-
+const router = require('express').Router()
+const userController = require('./controller/user-controller')
+const eventController = require('./controller/event-controller')
 
 router.post('/usercreate', userController.postUsers)
 router.post('/user', userController.getUser)
@@ -11,6 +10,4 @@ router.post('/eventsList', eventController.getEventsList)
 router.post('/currentEvent', eventController.getEvent)
 router.put('/events/:event/:user', eventController.updatePayment)
 
-
-
-module.exports = router;
+module.exports = router
