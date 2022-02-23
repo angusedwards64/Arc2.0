@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, Button, StyleSheet, TextInput, ScrollView } from 'react-native'
+/* eslint-disable no-use-before-define */
+import React, { useState } from 'react'
+import { View, Text, Button, StyleSheet, ScrollView } from 'react-native'
 // import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import ApiService from '../ApiService'
 import { useNavigation } from '@react-navigation/native'
-// import { color } from 'native-base/lib/typescript/theme/styled-system';
-
-type FriendsScreenParamList = {
-
-}
 
 // type Props = NativeStackScreenProps<FriendsScreenParamList, 'FriendsScreen'>;
 
 export default function FriendsScreen (props: any) {
   const navigation = useNavigation()
-
-  interface UserType {
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string,
-  }
 
   const [selectedUsers, setSelectedUsers]: any[] = useState([])
 

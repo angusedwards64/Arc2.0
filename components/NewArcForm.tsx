@@ -1,17 +1,12 @@
-import React from 'react'
-import { Text, StyleSheet, View, TextInput, Button, ScrollView } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Text, StyleSheet, View, TextInput, Button, ScrollView } from 'react-native'
+import { useForm, Controller } from 'react-hook-form'
 import ApiService from '../ApiService'
-import CurrencyInput from 'react-native-currency-input';
-import { useNavigation } from '@react-navigation/native';
+import CurrencyInput from 'react-native-currency-input'
+import { useNavigation } from '@react-navigation/native'
 
-
-export default function NewArcForm(props: any) {
-
-
-
-  const navigation = useNavigation();
+export default function NewArcForm (props: any) {
+  const navigation = useNavigation()
 
   const { register, setValue, handleSubmit, control, reset, formState: { errors } } = useForm({
     defaultValues: {
@@ -19,13 +14,13 @@ export default function NewArcForm(props: any) {
       date: '',
       venue: '',
       foodCost: '',
-      drinksCost: '',
+      drinksCost: ''
     }
-  });
+  })
 
-  const [eventName, setEventName] = useState("")
-  const [date, setDate] = useState("")
-  const [venue, setVenue] = useState("")
+  const [eventName, setEventName] = useState('')
+  const [date, setDate] = useState('')
+  const [venue, setVenue] = useState('')
   const [drinksCost, setDrinksCost] = useState(0)
   const [userList, setUserList] = useState([])
   const [eventUsers, setEventUsers] = useState(new Array())
@@ -37,51 +32,41 @@ export default function NewArcForm(props: any) {
   useEffect(() => {
     ApiService.getUsers()
       .then(users => {
-        return setUserList(users);
-      });
+        return setUserList(users)
+      })
     setEventCreated(false)
-  }, [],
+  }, []
   )
 
-
   const calculateArc = function () {
-
-    const arcs: any = {};
-    const arcMembers: any = {};
-    const arcsPaid: any = {};
-    const arcFirstNames: any = {};
-    const arcItems: any = {};
-
+    const arcs: any = {}
+    const arcMembers: any = {}
+    const arcsPaid: any = {}
+    const arcFirstNames: any = {}
+    const arcItems: any = {}
 
     eventUsers.map(user => arcsPaid[user.email] = false)
     eventUsers.map(user => arcFirstNames[user.email] = user.firstName)
 
-    let foodCostPerUser = Math.round((foodCost / foodUsers.length) * 100) / 100;
-    let drinkCostPerUser = Math.round((drinksCost / drinksUsers.length) * 100) / 100;
-
+    const foodCostPerUser = Math.round((foodCost / foodUsers.length) * 100) / 100
+    const drinkCostPerUser = Math.round((drinksCost / drinksUsers.length) * 100) / 100
 
     foodUsers.map(user => {
       if (drinksUsers.indexOf(user) === -1) {
-        arcs[user.email] = foodCostPerUser;
-        arcItems[user.email] = 'F';
-      }
-      else {
-        arcs[user.email] = foodCostPerUser + drinkCostPerUser;
-        arcItems[user.email] = 'FD';
+        arcs[user.email] = foodCostPerUser
+        arcItems[user.email] = 'F'
+      } else {
+        arcs[user.email] = foodCostPerUser + drinkCostPerUser
+        arcItems[user.email] = 'FD'
       }
     })
-
-
 
     drinksUsers.map(user => {
       if ((foodUsers.indexOf(user) === -1)) {
-        arcs[user.email] = drinkCostPerUser;
-        arcItems[user.email] = 'D';
-      }
-      else return
+        arcs[user.email] = drinkCostPerUser
+        arcItems[user.email] = 'D'
+      } else return
     })
-
-
 
     const newArc = {
       eventName: eventName,
@@ -96,50 +81,46 @@ export default function NewArcForm(props: any) {
       arcsPaid: arcsPaid,
       arcItems: arcItems,
       arcFirstNames: arcFirstNames,
-      arcNameArray: eventUsers,
+      arcNameArray: eventUsers
     }
 
-    const savedEvent = ApiService.createEvent(newArc);
-    console.log(savedEvent);
-
+    const savedEvent = ApiService.createEvent(newArc)
   }
 
-  function onChangeEvent(arg: string) {
+  function onChangeEvent (arg: string) {
     setEventName(arg)
   };
-  function onChangeDate(arg: string) {
+  function onChangeDate (arg: string) {
     setDate(arg)
   };
-  function onChangeVenue(arg: string) {
+  function onChangeVenue (arg: string) {
     setVenue(arg)
   };
-  function onChangeFoodCost(arg: number) {
+  function onChangeFoodCost (arg: number) {
     setFoodCost(arg)
   };
-  function onChangeDrinksCost(arg: number) {
+  function onChangeDrinksCost (arg: number) {
     setDrinksCost(arg)
   };
-  function updateEventUsers(arg: any) {
+  function updateEventUsers (arg: any) {
     setEventUsers([...eventUsers, ...arg])
   }
-  function updateFoodUsers(arg: any) {
+  function updateFoodUsers (arg: any) {
     setFoodUsers([...foodUsers, ...arg])
   }
-  function updateDrinksUsers(arg: any) {
+  function updateDrinksUsers (arg: any) {
     setDrinksUsers([...drinksUsers, ...arg])
   }
 
-
-
-
   return (
 
-    eventCreated ? (
-      <View>
-        <Text style={styles.created}>Event Created!</Text>
-      </View>
-    ) :
-      (
+    eventCreated
+      ? (
+        <View>
+          <Text style={styles.created}>Event Created!</Text>
+        </View>
+      )
+      : (
         <View style={styles.container}>
           <View style={styles.button}>
             <Button color="black"
@@ -207,7 +188,7 @@ export default function NewArcForm(props: any) {
                   navigation.navigate('FoodScreen', {
                     foodCost: foodCost,
                     eventUsers: eventUsers,
-                    updateFoodUsers: updateFoodUsers,
+                    updateFoodUsers: updateFoodUsers
                   })
                 }}
               />
@@ -232,7 +213,7 @@ export default function NewArcForm(props: any) {
                   navigation.navigate('DrinksScreen', {
                     drinksCost: drinksCost,
                     eventUsers: eventUsers,
-                    updateDrinksUsers: updateDrinksUsers,
+                    updateDrinksUsers: updateDrinksUsers
                   })
                 }}
               />
@@ -244,7 +225,7 @@ export default function NewArcForm(props: any) {
             <Button color="black"
               title="CREATE ARC"
               onPress={() => {
-                calculateArc();
+                calculateArc()
                 setEventCreated(true)
               }}
             />
@@ -263,7 +244,7 @@ const styles = StyleSheet.create({
   label: {
     color: 'white',
     marginTop: 15,
-    marginBottom: 5,
+    marginBottom: 5
   },
   button: {
     justifyContent: 'center',
@@ -272,7 +253,7 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: '#C996D4',
     borderRadius: 4,
-    fontWeight: "bold"
+    fontWeight: 'bold'
   },
   buttonBottom: {
     justifyContent: 'center',
@@ -281,7 +262,7 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: '#29b6f6',
     borderRadius: 4,
-    fontWeight: "bold"
+    fontWeight: 'bold'
   },
   input: {
     width: 320,
@@ -291,14 +272,14 @@ const styles = StyleSheet.create({
     color: 'white',
     height: 40,
     borderRadius: 4,
-    padding: 10,
+    padding: 10
   },
   signup: {
     color: 'rgb(230,230,230)',
     marginTop: 15,
     marginBottom: 5,
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 30
   },
   text: {
     color: 'white',
@@ -312,5 +293,4 @@ const styles = StyleSheet.create({
     fontSize: 50
   }
 
-
-});
+})
