@@ -1,14 +1,13 @@
-import React from 'react'
+/* eslint-disable no-use-before-define */
+import React, { useState, useEffect } from 'react'
 import { Button, View, Text, Image, StyleSheet } from 'react-native'
 import ApiService from '../ApiService'
-import { useState, useEffect } from 'react'
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack'
 
 type LoginScreentypes = {
   NewArcScreen: undefined;
 };
-
 
 interface ProfileScreenProps {
   user: string
@@ -22,33 +21,19 @@ interface ProfileType {
   password: string,
 }
 
-
-
-export default function ProfileScreen({ user, setUser }: ProfileScreenProps) {
-
-
-
-
-  const navigation = useNavigation<StackNavigationProp<LoginScreentypes>>();
-
+export default function ProfileScreen ({ user, setUser }: ProfileScreenProps) {
+  const navigation = useNavigation<StackNavigationProp<LoginScreentypes>>()
 
   const [profile, setProfile] = useState<ProfileType | undefined>(undefined)
-
-
 
   useEffect(() => {
     ApiService.getUser(user)
       .then(user => setProfile(user))
-  }, [],
+  }, []
   )
 
-
-
-
-
-
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start', backgroundColor: "rgb(20,20,30)", }}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start', backgroundColor: 'rgb(20,20,30)' }}>
       <Image style={styles.logo} source={require('../assets/logohq.png')}
       />
       <Text style={styles.header}>Hi {(profile) ? profile.firstName : 'User 1'}!</Text>
@@ -84,7 +69,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 300,
     height: 300,
-    top: 20,
+    top: 20
   },
   button: {
     color: 'black'
@@ -113,7 +98,7 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#29b6f6',
     borderRadius: 4,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20
 
   },
@@ -124,7 +109,7 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: '#36454f',
     borderRadius: 4,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 10
 
   },
@@ -137,7 +122,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: '#36454f',
     borderWidth: 1,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20
 
   },

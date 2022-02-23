@@ -1,55 +1,49 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, Button, StyleSheet, ScrollView, Image } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
-import ApiService from '../ApiService';
+import { useNavigation } from '@react-navigation/native'
+import ApiService from '../ApiService'
 
-
-
-export default function EventListScreen(props: any) {
-
+export default function EventListScreen (props: any) {
   const [myEvents, setMyEvents] = useState([])
 
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   useEffect(() => {
     const currentUser = { user: props.route.params.user }
     ApiService.getEventsList(currentUser)
-    .then(events => setMyEvents(events))
-    .catch(err => console.log(err))
-  }, [myEvents],
+      .then(events => setMyEvents(events))
+      .catch(err => console.log(err))
+  }, [myEvents]
   )
-
 
   const attendedEvents = myEvents.map((event: any) => {
     return <View style={styles.eventContainer} key={event._id}>
-              <Text style={styles.eventHeader}>
-                {event.eventName}
-              </Text>
-              <Text style={styles.venue}>
-                {event.venue}
-              </Text>
-              <Text style={styles.label}>
-                {event.date}
-              </Text>
-              <View style={styles.button}>
-                <Text style={styles.button2}>
+      <Text style={styles.eventHeader}>
+        {event.eventName}
+      </Text>
+      <Text style={styles.venue}>
+        {event.venue}
+      </Text>
+      <Text style={styles.label}>
+        {event.date}
+      </Text>
+      <View style={styles.button}>
+        <Text style={styles.button2}>
                   Head To Event
-                <Button
-                      title=''
-                      color='black'
-                      onPress={() => {
-                        console.log('hi')
-                        navigation.navigate('SingleEventScreen', {
-                          eventId: event._id
-                        })
-                      }} />
-                </Text>
-              </View>
-              {event.creator === props.route.params.user ? <Text style={styles.creator}>Creator</Text> : null}
-            </View>})
-
-
-
+          <Button
+            title=''
+            color='black'
+            onPress={() => {
+              console.log('hi')
+              navigation.navigate('SingleEventScreen', {
+                eventId: event._id
+              })
+            }} />
+        </Text>
+      </View>
+      {event.creator === props.route.params.user ? <Text style={styles.creator}>Creator</Text> : null}
+    </View>
+  })
 
   return (
     <ScrollView>
@@ -58,19 +52,18 @@ export default function EventListScreen(props: any) {
           <Text style={styles.header}>Current Arcs</Text>
           <Image style={styles.logo} source={require('../assets/logohq.png')} />
         </View>
-        {attendedEvents ? attendedEvents : <Text>Placeholder</Text>}
+        {attendedEvents || <Text>Placeholder</Text>}
       </View>
     </ScrollView>
   )
 }
-
 
 const styles = StyleSheet.create({
   container: {
     height: 1800,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    backgroundColor: "rgb(20,20,30)"
+    backgroundColor: 'rgb(20,20,30)'
   },
   logo: {
     width: 100,
@@ -84,13 +77,13 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     paddingLeft: 0,
     alignItems: 'flex-end',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   eventHeader: {
     color: 'white',
     fontSize: 30,
     paddingBottom: 5,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   venue: {
     color: 'white',
@@ -100,20 +93,20 @@ const styles = StyleSheet.create({
   eventContainer: {
     paddingTop: 20,
     paddingBottom: 5,
-    width: "90%",
+    width: '90%',
     borderTopColor: '#C996D4',
-    borderRightColor: "rgb(20,20,30)",
-    borderBottomColor: "rgb(20,20,30)",
-    borderLeftColor: "rgb(20,20,30)",
+    borderRightColor: 'rgb(20,20,30)',
+    borderBottomColor: 'rgb(20,20,30)',
+    borderLeftColor: 'rgb(20,20,30)',
     borderWidth: 2,
     height: 165,
     alignItems: 'flex-start',
-    backgroundColor: "rgb(20,20,30)"
+    backgroundColor: 'rgb(20,20,30)'
   },
   label: {
     color: 'white',
     marginTop: 5,
-    marginBottom: 5,
+    marginBottom: 5
   },
   header: {
     color: '#C996D4',
@@ -122,7 +115,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     // marginRight: 0,
     fontWeight: 'bold',
-    fontSize: 35,
+    fontSize: 35
   },
   title: {
     color: 'white',
@@ -146,10 +139,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingBottom: 10,
     paddingLeft: 20,
-    fontSize: 15,
+    fontSize: 15
   },
   creator: {
-    backgroundColor: "rgb(20,20,30)",
+    backgroundColor: 'rgb(20,20,30)',
     marginTop: 120,
     borderColor: '#5579c6',
     color: '#5579c6',
@@ -157,7 +150,7 @@ const styles = StyleSheet.create({
     padding: 6,
     borderRadius: 3,
     position: 'absolute',
-    marginLeft: 260,
+    marginLeft: 260
   }
 
 })
