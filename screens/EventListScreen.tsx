@@ -34,7 +34,6 @@ export default function EventListScreen (props: any) {
             title=''
             color='black'
             onPress={() => {
-              console.log('hi')
               navigation.navigate('SingleEventScreen', {
                 eventId: event._id
               })
