@@ -38,7 +38,6 @@ export default function SingleEventScreen (props:any) {
     const currentEvent = { event: props.route.params.eventId }
     ApiService.getEvent(currentEvent)
       .then(users => {
-        console.log('users', users)
         return users
       })
       .then((users) => setEventUsers(users[0].arcNameArray.map(a => [a.firstName, a.lastName, a.email])))
