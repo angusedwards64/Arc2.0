@@ -47,11 +47,11 @@ or holiday tab etc.
 
 
 ## Getting Started:
-To run the application start by heading into the server folder, running '$npm i', followed by '$nodemon index.js'.
-You will also need to have expo installed, and once you have this you can head into the main folder, and in a new
-terminal window, run '$expo start'. It will then provide you the option to select your desired ios or android system.
-If you have expo go on your phone you can also scan the QR code and use the app there. (If you have a mac you will
-need XCode in order to run the iPhone simulator).
+To run the application you will need mongo installed on your computer and running, as well as expo. Once you have these,
+head into the server folder, running '$npm i', followed by '$nodemon index.js'.
+In a new terminal, head into the main folder, and in a new terminal window, run '$expo start'. It will then provide you
+the option to select your desired ios or android system. If you have expo go on your phone you can also scan the QR code 
+and use the app there. (If you have a mac you will need XCode in order to run the iPhone simulator).
 I have moved the application over to a fresh repo entirely (with the previous application now listed as private, but
 can be made public on request) due to an issue that was causing the front-end to nest within an unreachable
 subfolder on github. Hence the lack of previous commits.
