@@ -14,7 +14,6 @@ const postEvents = async (req, res) => {
 }
 
 const getEventsList = async (req, res) => {
-  // console.log(req.body.user)
   try {
     const user = req.body.user
     const eventList = await eventModel.find({})

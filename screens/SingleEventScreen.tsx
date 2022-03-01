@@ -1,12 +1,9 @@
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react'
 import { View, Text, Button, StyleSheet, Image, ScrollView } from 'react-native'
 import ApiService from '../ApiService'
 import { useNavigation } from '@react-navigation/native'
 import { FontAwesome, Entypo } from '@expo/vector-icons'
-
-interface SingleEventScreenProps {
-  user: string
-}
 
 export default function SingleEventScreen(props: any) {
   const navigation = useNavigation()
