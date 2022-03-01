@@ -1,14 +1,11 @@
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react'
 import { View, Text, Button, StyleSheet, Image, ScrollView } from 'react-native'
 import ApiService from '../ApiService'
 import { useNavigation } from '@react-navigation/native'
 import { FontAwesome, Entypo } from '@expo/vector-icons'
 
-interface SingleEventScreenProps {
-  user: string
-}
-
-export default function SingleEventScreen (props:any) {
+export default function SingleEventScreen(props: any) {
   const navigation = useNavigation()
 
   const [event, setEvent] = useState<any[]>([])
@@ -44,12 +41,11 @@ export default function SingleEventScreen (props:any) {
   }, []
   )
 
-  function payNow (event:any, user:any) {
+  function payNow(event: any, user: any) {
     ApiService.updatePayment(event, user)
     setPaid(true)
   }
 
-  // event details
   const details = event.map((event) => {
     return <View key={event._id}>
       <View style={styles.header}>
@@ -73,24 +69,24 @@ export default function SingleEventScreen (props:any) {
     </View>
   })
 
-  const myArc = eventUsers.filter(a => a[2] === props.route.params.user).map((user:any, i) => {
+  const myArc = eventUsers.filter(a => a[2] === props.route.params.user).map((user: any, i) => {
     return <View style={styles.me} key={user[2]}>
       <Text style={styles.textMe}>You {event[0].arcsPaid[user[2]] ? 'paid' : 'owe'} £{event[0].arcs[user[2]].toFixed(2)}</Text>
       <Text style={styles.textBlurbMe}>for {event[0].arcItems[props.route.params.user].length === 2 ? 'Food and Drink' : event[0].arcItems[props.route.params.user] === 'F' ? 'Food Only' : 'Drinks only'}</Text>
       <View>
       </View>
-      <View style={paid ? styles.payNowButtonClicked : styles.payNowButton }>
+      <View style={paid ? styles.payNowButtonClicked : styles.payNowButton}>
         <Button
           color='black'
           title={paid ? 'Paid!' : 'Pay Now'}
           onPress={() => {
             payNow(event[0]._id, props.route.params.user)
-          }}/>
+          }} />
       </View>
     </View>
   })
 
-  const friendsArc = eventUsers.filter(a => a[2] !== props.route.params.user).map((user:any, i) => {
+  const friendsArc = eventUsers.filter(a => a[2] !== props.route.params.user).map((user: any, i) => {
     return <View style={styles.othersWrapper} key={user[2]}>
       <View style={styles.othersTextContent}>
         <Text style={styles.othersBill}>{event[0].arcFirstNames[user[2]] + ' ' + user[1]} {event[0].arcsPaid[user[2]] ? 'paid' : 'owes'} £{event[0].arcs[user[2]].toFixed(2)}</Text>
@@ -99,14 +95,14 @@ export default function SingleEventScreen (props:any) {
       {event[0].arcItems[user[2]].length === 2
         ? <View style={styles.icons}>
           <FontAwesome name="cutlery" size={24} color="white" />
-          <Entypo name="drink" size={24} color="white" style={styles.icon}/>
+          <Entypo name="drink" size={24} color="white" style={styles.icon} />
         </View>
         : event[0].arcItems[user[2]] === 'F'
           ? <View style={styles.icons}>
             <FontAwesome name="cutlery" size={24} color="white" />
           </View>
           : <View style={styles.icons}>
-            <Entypo name="drink" size={24} color="white" style={styles.icon}/>
+            <Entypo name="drink" size={24} color="white" style={styles.icon} />
           </View>
       }
     </View>
@@ -116,14 +112,14 @@ export default function SingleEventScreen (props:any) {
     <ScrollView>
       <View style={styles.container}>
         {details}
-        {props.route.params.user === creator ? <Text style={styles.creator}>You Created The Event!</Text> : myArc}
+        {props.route.params.user === creator ? <Text style={styles.creator}>Your Event!</Text> : myArc}
         {friendsArc || 'undefined'}
         <View style={styles.buttonBack}>
           <Button color='white'
             title='Back to Events'
             onPress={() => {
               navigation.goBack()
-            }}/>
+            }} />
         </View>
 
       </View>
