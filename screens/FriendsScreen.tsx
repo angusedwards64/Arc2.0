@@ -24,7 +24,6 @@ export default function FriendsScreen (props: any) {
 
   function registerAttendee (email: any) {
     setSelectedUsers((oldUsers: any) => [...oldUsers, email])
-    console.log(selectedUsers)
   }
 
   return (

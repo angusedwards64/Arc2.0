@@ -1,9 +1,8 @@
 import { User } from './types/userType'
-import axios from '../node_modules/axios'
-const base_url = 'http://127.0.0.1:3000'
+const baseUrl = 'http://127.0.0.1:3000'
 
 function fetchFactory (path: string, options: any) {
-  return fetch(base_url + path, options)
+  return fetch(baseUrl + path, options)
     .then(res => res.status < 400 ? res : Promise.reject())
     .then(res => res.json())
     .catch(err => console.log(err))
