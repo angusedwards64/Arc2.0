@@ -1,3 +1,4 @@
+/* eslint-disable no-array-constructor */
 import React, { useState, useEffect } from 'react'
 import { Text, StyleSheet, View, TextInput, Button, ScrollView } from 'react-native'
 import { useForm, Controller } from 'react-hook-form'

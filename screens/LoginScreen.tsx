@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, Button, Image, ScrollView } from 'react-native'
+import { View, StyleSheet, Button, Image, ScrollView } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import LoginInForm from '../components/LogInForm'
 import { StackNavigationProp } from '@react-navigation/stack'

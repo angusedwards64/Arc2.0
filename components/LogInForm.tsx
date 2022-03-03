@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Text, StyleSheet, View, TextInput, Button } from 'react-native'
 import { useForm, Controller } from 'react-hook-form'
-import Constants from 'expo-constants'
-import ApiService from '../ApiService'
-import { NavigationContainer, NavigationProp } from '@react-navigation/native'
-import { ParamsList } from '../screens/paramsList'
 
 interface LoginInProps {
   setUser: React.Dispatch<React.SetStateAction<string>>
