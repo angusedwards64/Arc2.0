@@ -1,6 +1,6 @@
 /* eslint-disable no-array-constructor */
 import React, { useState, useEffect } from 'react'
-import { Text, StyleSheet, View, TextInput, Button, ScrollView } from 'react-native'
+import { Text, StyleSheet, View, TextInput, Button } from 'react-native'
 import { useForm, Controller } from 'react-hook-form'
 import ApiService from '../ApiService'
 import CurrencyInput from 'react-native-currency-input'
@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native'
 export default function NewArcForm (props: any) {
   const navigation = useNavigation()
 
-  const { register, setValue, handleSubmit, control, reset, formState: { errors } } = useForm({
+  const { control, formState: { errors } } = useForm({
     defaultValues: {
       eventName: '',
       date: '',
