@@ -1,10 +1,7 @@
 /* eslint-disable no-use-before-define */
 import React, { useState } from 'react'
 import { View, Text, Button, StyleSheet, ScrollView } from 'react-native'
-// import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native'
-
-// type Props = NativeStackScreenProps<FriendsScreenParamList, 'FriendsScreen'>;
 
 export default function FriendsScreen (props: any) {
   const navigation = useNavigation()

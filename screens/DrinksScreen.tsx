@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-use-before-define
 import React, { useState } from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
