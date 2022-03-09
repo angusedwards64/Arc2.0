@@ -112,7 +112,6 @@ const styles = StyleSheet.create({
     marginTop: 40,
     marginBottom: 20,
     marginLeft: 20,
-    // marginRight: 0,
     fontWeight: 'bold',
     fontSize: 35
   },
