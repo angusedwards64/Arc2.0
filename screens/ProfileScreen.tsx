@@ -4,6 +4,7 @@ import { Button, View, Text, Image, StyleSheet } from 'react-native'
 import ApiService from '../ApiService'
 import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { profileStyles as styles } from '../styles'
 
 type LoginScreentypes = {
   NewArcScreen: undefined;
@@ -64,71 +65,3 @@ export default function ProfileScreen ({ user, setUser }: ProfileScreenProps) {
 
   )
 }
-
-const styles = StyleSheet.create({
-  logo: {
-    width: 300,
-    height: 300,
-    top: 20
-  },
-  button: {
-    color: 'black'
-  },
-  container: {
-    color: 'white'
-  },
-  text: {
-    color: 'white',
-    fontSize: 20,
-    marginBottom: 10,
-    fontStyle: 'italic'
-  },
-  header: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: 'white'
-  },
-  logout: {
-
-  },
-  buttonCreate: {
-    justifyContent: 'center',
-    width: 180,
-    marginTop: 30,
-    height: 50,
-    backgroundColor: '#29b6f6',
-    borderRadius: 4,
-    fontWeight: 'bold',
-    marginBottom: 20
-
-  },
-  buttonEdit: {
-    justifyContent: 'center',
-    width: 150,
-    marginTop: 30,
-    height: 40,
-    backgroundColor: '#36454f',
-    borderRadius: 4,
-    fontWeight: 'bold',
-    marginBottom: 10
-
-  },
-  buttonLogout: {
-    justifyContent: 'center',
-    width: 150,
-    marginTop: 5,
-    height: 40,
-    backgroundColor: 'black',
-    borderRadius: 4,
-    borderColor: '#36454f',
-    borderWidth: 1,
-    fontWeight: 'bold',
-    marginBottom: 20
-
-  },
-  details: {
-    marginTop: 10,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})

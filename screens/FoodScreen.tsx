@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { foodStyles as styles } from '../styles'
 
 export default function FoodScreen (props: any) {
   const navigation = useNavigation()
@@ -41,48 +42,3 @@ export default function FoodScreen (props: any) {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: 'rgb(20,20,30)',
-    height: 1500
-  },
-  btnClicked: {
-    color: 'red'
-  },
-  header: {
-    marginTop: 35,
-    marginLeft: 20,
-    marginBottom: 20,
-    fontSize: 30,
-    color: 'white'
-  },
-  buttonClick: {
-    height: 40,
-    width: 350,
-    marginBottom: 10,
-    color: 'white',
-    borderRadius: 10,
-    backgroundColor: '#e1c4ff'
-  },
-  buttonUnclick: {
-    height: 40,
-    marginBottom: 10,
-    width: 350,
-    color: 'white',
-    borderRadius: 10,
-    backgroundColor: 'rgb(35,35,35)'
-  },
-  buttonBorder: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(52, 52, 52, 0)'
-  },
-  buttonContainer: {
-    backgroundColor: 'rgb(5,5,5)',
-    height: 40,
-    marginTop: 20,
-    width: 350,
-    borderRadius: 10
-  }
-})

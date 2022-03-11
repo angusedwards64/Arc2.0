@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     height: 300,
     top: 20
   },
-
   button: {
     color: 'black'
   }

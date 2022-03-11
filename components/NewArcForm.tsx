@@ -5,6 +5,7 @@ import { useForm, Controller } from 'react-hook-form'
 import ApiService from '../ApiService'
 import CurrencyInput from 'react-native-currency-input'
 import { useNavigation } from '@react-navigation/native'
+import { newArcStyles as styles } from '../styles'
 
 export default function NewArcForm (props: any) {
   const navigation = useNavigation()
@@ -235,63 +236,4 @@ export default function NewArcForm (props: any) {
       ))
 }
 
-const styles = StyleSheet.create({
-  container: {
-    width: 280,
-    height: 600,
-    alignItems: 'center',
-    alignContent: 'center'
-  },
-  label: {
-    color: 'white',
-    marginTop: 15,
-    marginBottom: 5
-  },
-  button: {
-    justifyContent: 'center',
-    width: 140,
-    marginTop: 30,
-    height: 40,
-    backgroundColor: '#C996D4',
-    borderRadius: 4,
-    fontWeight: 'bold'
-  },
-  buttonBottom: {
-    justifyContent: 'center',
-    width: 140,
-    marginTop: 30,
-    height: 40,
-    backgroundColor: '#29b6f6',
-    borderRadius: 4,
-    fontWeight: 'bold'
-  },
-  input: {
-    width: 320,
-    backgroundColor: 'black',
-    borderColor: 'rgb(129,129,129)',
-    borderWidth: 1,
-    color: 'white',
-    height: 40,
-    borderRadius: 4,
-    padding: 10
-  },
-  signup: {
-    color: 'rgb(230,230,230)',
-    marginTop: 15,
-    marginBottom: 5,
-    fontWeight: 'bold',
-    fontSize: 30
-  },
-  text: {
-    color: 'white',
-    fontSize: 20
-  },
-  created: {
-    marginTop: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: '#C996D4',
-    fontSize: 50
-  }
 
-})

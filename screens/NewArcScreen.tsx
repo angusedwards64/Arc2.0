@@ -2,6 +2,7 @@
 import React from 'react'
 import { View, StyleSheet, Image, ScrollView } from 'react-native'
 import NewArcForm from '../components/NewArcForm'
+import { newArcScreenStyles as styles } from '../styles'
 
 export default function NewArcScreen (props: any) {
   return (
@@ -14,22 +15,3 @@ export default function NewArcScreen (props: any) {
     </ScrollView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: 2000,
-    alignItems: 'center',
-    backgroundColor: 'rgb(20,20,30)'
-  },
-  logo: {
-    width: 300,
-    height: 300,
-    top: 20
-  },
-  button: {
-    color: 'black'
-  },
-  text: {
-    color: 'white'
-  }
-})
