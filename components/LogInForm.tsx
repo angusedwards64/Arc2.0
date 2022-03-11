@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Text, StyleSheet, View, TextInput, Button } from 'react-native'
 import { useForm, Controller } from 'react-hook-form'
+import { loginFormStyles as styles } from '../styles'
 
 interface LoginInProps {
   setUser: React.Dispatch<React.SetStateAction<string>>
@@ -69,46 +70,3 @@ export default function LoginInForm ({ setUser }: LoginInProps) {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: 280,
-    height: 600,
-    alignItems: 'center',
-    alignContent: 'center'
-  },
-  label: {
-    color: 'white',
-    marginTop: 15,
-    marginBottom: 5
-  },
-  button: {
-    justifyContent: 'center',
-    width: 140,
-    marginTop: 30,
-    height: 40,
-    backgroundColor: '#C996D4',
-    borderRadius: 4,
-    fontWeight: 'bold'
-
-  },
-  input: {
-    width: 320,
-    backgroundColor: 'black',
-    borderColor: 'rgb(129,129,129)',
-    borderWidth: 1,
-    color: 'white',
-    height: 40,
-    borderRadius: 4,
-    padding: 10
-  },
-
-  signup: {
-    color: 'rgb(230,230,230)',
-    marginTop: 15,
-    marginBottom: 5,
-    fontWeight: 'bold',
-    fontSize: 30
-  }
-
-})
