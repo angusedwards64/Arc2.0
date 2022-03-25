@@ -5,8 +5,6 @@ const postEvents = async (req, res) => {
   try {
     const event = req.body
     const savedEvent = await eventModel.create(event)
-    console.log('saved event', savedEvent)
-    res.status(200).json(savedEvent)
   } catch (error) {
     console.log(error)
     res.sendStatus(500)
@@ -39,8 +37,6 @@ const getEvent = async (req, res) => {
 const updatePayment = async (req, res) => {
   try {
     const { event, user } = req.params
-    console.log(event)
-    console.log(user)
     const updatedEvent = await eventModel.findById(event)
     const arcsPaid = updatedEvent.arcsPaid
     arcsPaid[user] = true
