@@ -3,7 +3,7 @@ const eventModel = require('../models/event-model')
 const postEvents = async (req, res) => {
   try {
     const event = req.body
-    const savedEvent = await eventModel.create(event)
+    await eventModel.create(event)
   } catch (error) {
     console.log(error)
     res.sendStatus(500)
